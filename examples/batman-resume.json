@@ -1,0 +1,134 @@
+{
+	"profile": {
+		"firstName": "Bruce",
+		"lastName": "Wayne",
+		"address": {
+			"street": "14th batcave street",
+			"city": "Gotham city",
+			"postalCode": "10025",
+			"country": "USA"
+		},
+		"nationality": "American",
+		"phone":{
+			"number": "0000000000",
+			"extension": "+00"
+		},
+		"email": "bruce.wayne@batman.com",
+		"dateOfBirth": "1939-03-30T00:00:00.000Z"
+	},
+	"title": "Super Hero",
+	"summary": "American billionaire, playboy, philanthropist, and owner of Wayne Enterprises",
+	"objective": "Swore revenge on criminals, an oath tempered by a sense of justice.",
+	"languages": [ {
+			"language": "American",
+			"Proficiency": "Native"
+		},
+		{
+			"language": "Ultrasound",
+			"Proficiency": "Fluent"
+		}
+	],
+	"skills": [ {
+			"skill": "batarang",
+			"type": "weapon"
+		},
+		{
+			"skill": "grappling gun",
+			"type": "weapon",
+			"details": "Swing from building to building without the danger of falling to his death."
+		},
+		{
+			"skill": "batmobile",
+			"type": "vehicule"
+		},
+		{
+			"skill": "batwing",
+			"type": "vehicule",
+			"details": "Fly above vilains."
+		},
+		{
+			"skill": "intimidation",
+			"type": "other",
+			"details": "Superhuman force of will"
+		}
+	],
+	"experience": [ {
+			"company": "Wayne Enterprises",
+			"title": "Owner",
+			"location": "Gotham city",
+			"period": {
+				"start": "2000-01-01T00:00:00.000Z",
+				"end": "2010-01-01T00:00:00.000Z"
+			},
+			"projects": [ {
+				"name": "Wayne Technologies",
+				"description": "Research into alien technology has contributed to large breakthroughs in medicine, cybernetics, pharmaceuticals and avionics.",
+				"technologies": ["Alien technologies", "medical stuff"]
+				},
+				{
+					"name": "Wayne Steel",
+					"description": "Managing the revenue from Wayne Steel shipyards, ...",
+					"technologies": ["Alien alloy", "Wealth calculator"]
+				}
+			]
+		},
+		{
+			"company": "Batman secret identity",
+			"title": "Super Hero",
+			"location": "Gotham city",
+			"period": {
+				"start": "2010-01-01T00:00:00.000Z",
+				"end": "Now"
+			},
+			"projects": [ {
+				"name": "villains riddance",
+				"description": "beat villains, and make the street of Gotham safer.",
+				"technologies": ["batarang", "batmobile", "grappling gun", "bat cave"]
+				}
+			]
+		}
+	],
+	"education": [ {
+			"school": "Yale university",
+			"period": {
+				"start": "2000-08-01T00:00:00.000Z",
+				"end": "2002-08-01T00:00:00.000Z"
+			},
+			"degree": "Master",
+			"study": "Criminology",
+			"description": "specialiality: law-enforcement."
+		},
+		{
+			"school": "Yale university",
+			"period": {
+				"start": "2002-08-01T00:00:00.000Z",
+				"end": "2004-08-01T00:00:00.000Z"
+			},
+			"degree": "Master",
+			"study": "Science",
+			"description": "master technologies to be able to use batgadgets"
+		}
+	],
+	"interests": [
+		"bats",
+		"criminology",
+		"dark nights",
+		"law",
+		"new technologies",
+		"secret identity"
+	],
+	"activities": [
+		"gliding",
+		"fighting",
+		"racing"
+	],
+	"links": [ {
+			"name": "Wayne entreprise",
+			"url": "https://en.wikipedia.org/wiki/Wayne_Enterprises"
+		},
+		{
+			"name": "Batman",
+			"url": "https://fr.wikipedia.org/wiki/Batman"
+		}
+	]
+}

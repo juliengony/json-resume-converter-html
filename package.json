@@ -1,0 +1,30 @@
+{
+  "name": "json-resume-converter-html",
+  "version": "1.0.0",
+  "description": "Will convert a resume from json to html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliengony/json-resume-converter-html.git"
+  },
+  "keywords": [
+    "resume",
+    "converter",
+    "json",
+    "html"
+  ],
+  "author": "julien gony",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juliengony/json-resume-converter-html/issues"
+  },
+  "homepage": "https://github.com/juliengony/json-resume-converter-html#readme",
+  "dependencies": {
+    "colors": "1.1.2",
+    "commander": "2.9.0",
+    "jsonschema": "1.0.2"
+  }
+}
