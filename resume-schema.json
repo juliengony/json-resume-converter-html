@@ -88,48 +88,37 @@
     },
     "languages": {
       "id": "languages",
-      "type": "array",
-      "items": {
-        "id": "1",
-        "type": "object",
-        "properties": {
-          "language": {
-            "id": "language",
-            "type": "string"
-          },
-          "Proficiency": {
-            "id": "Proficiency",
-            "type": "string"
-          }
-        }
-      },
-      "additionalItems": false
+      "type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
     },
     "skills": {
       "id": "skills",
-      "type": "array",
-      "items": {
-        "id": "4",
-        "type": "object",
-        "properties": {
-          "skill": {
-            "id": "skill",
-            "type": "string"
-          },
-          "type": {
-            "id": "type",
-            "type": "string"
-          },
-          "details": {
-            "id": "details",
-            "type": "string"
-          }
-        }
-      },
+      "type": "object",
+			"additionalProperties": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"skill": {
+							"id": "skill",
+							"type": "string"
+						},
+						"details": {
+							"id": "details",
+							"type": "string"
+						}
+					},
+		      "required": [
+		        "skill"
+					]
+				}
+			 },
       "additionalItems": false
     },
-    "experience": {
-      "id": "experience",
+    "experiences": {
+      "id": "experiences",
       "type": "array",
       "items": {
         "id": "1",
@@ -252,44 +241,17 @@
     },
     "interests": {
       "id": "interests",
-      "type": "array",
-      "items": {
-        "id": "5",
-        "type": "string"
-      },
-      "additionalItems": false
-    },
-    "activities": {
-      "id": "activities",
-      "type": "array",
-      "items": {
-        "id": "2",
-        "type": "string"
-      },
-      "additionalItems": false
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
     },
     "links": {
       "id": "links",
-      "type": "array",
-      "items": {
-        "id": "1",
-        "type": "object",
-        "properties": {
-          "name": {
-            "id": "name",
-            "type": "string"
-          },
-          "url": {
-            "id": "url",
-            "type": "string"
-          }
-        },
-			  "required": [
-			    "name",
-			    "url"
-			  ]
-      },
-      "additionalItems": false
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
     }
   },
   "required": [
@@ -299,7 +261,7 @@
     "objective",
     "languages",
     "skills",
-    "experience",
+    "experiences",
     "education"
   ]
 }

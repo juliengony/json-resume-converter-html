@@ -19,40 +19,34 @@
 	"title": "Super Hero",
 	"summary": "American billionaire, playboy, philanthropist, and owner of Wayne Enterprises",
 	"objective": "Swore revenge on criminals, an oath tempered by a sense of justice.",
-	"languages": [ {
-			"language": "American",
-			"Proficiency": "Native"
+	"languages": {
+		"American": "Native",
+		"Ultrasound": "Fluent"
+	},
+	"skills": {
+			"weapons": [ {
+				"skill": "batarang"
+				},
+				{
+					"skill": "grappling gun",
+					"details": "Swing from building to building without the danger of falling to his death."
+				}
+			],
+			"vehicule": [ {
+				"skill": "batmobile"
+				},
+				{
+					"skill": "batwing",
+					"details": "Fly above vilains."
+				}
+			],
+			"other" : [ {
+				"skill": "intimidation",
+				"details": "Superhuman force of will"
+				}
+			]
 		},
-		{
-			"language": "Ultrasound",
-			"Proficiency": "Fluent"
-		}
-	],
-	"skills": [ {
-			"skill": "batarang",
-			"type": "weapon"
-		},
-		{
-			"skill": "grappling gun",
-			"type": "weapon",
-			"details": "Swing from building to building without the danger of falling to his death."
-		},
-		{
-			"skill": "batmobile",
-			"type": "vehicule"
-		},
-		{
-			"skill": "batwing",
-			"type": "vehicule",
-			"details": "Fly above vilains."
-		},
-		{
-			"skill": "intimidation",
-			"type": "other",
-			"details": "Superhuman force of will"
-		}
-	],
-	"experience": [ {
+	"experiences": [ {
 			"company": "Wayne Enterprises",
 			"title": "Owner",
 			"location": "Gotham city",
@@ -109,26 +103,14 @@
 			"description": "master technologies to be able to use batgadgets"
 		}
 	],
-	"interests": [
-		"bats",
-		"criminology",
-		"dark nights",
-		"law",
-		"new technologies",
-		"secret identity"
-	],
-	"activities": [
-		"gliding",
-		"fighting",
-		"racing"
-	],
-	"links": [ {
-			"name": "Wayne entreprise",
-			"url": "https://en.wikipedia.org/wiki/Wayne_Enterprises"
-		},
-		{
-			"name": "Batman",
-			"url": "https://fr.wikipedia.org/wiki/Batman"
-		}
-	]
+	"interests": {
+		"sports": "gliding, fighting, racing",
+		"secrets": "secret identity, secret place",
+		"animals": "passionate about bats",
+		"new technologies": "futuristic vehicules, state of the art weapons"
+	},
+	"links": {
+		"Wayne entreprise": "https://en.wikipedia.org/wiki/Wayne_Enterprises",
+		"Batman": "https://fr.wikipedia.org/wiki/Batman"
+	}
 }
