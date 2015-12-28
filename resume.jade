@@ -1,0 +1,96 @@
+doctype html
+html
+	head
+		title= profile.firstName + ' ' + profile.lastName + "'s Resume"
+	body
+		header
+			hgroup
+				h1= profile.firstName + ' ' + profile.lastName
+				h2= title
+			section#ContactInfo
+				h1 Contact info
+				address
+					div.ContactName= profile.firstName + ' ' + profile.lastName
+					div.ContactAdress= profile.address.street + ' ' + profile.address.postalCode + ' ' + profile.address.city + ', ' + profile.address.country
+					div.ContactAge#ContactAge
+					div.ContactTel= '(' + profile.phone.extension + ') ' + profile.phone.number
+					div.ContactEmail= profile.email
+					div.ContactNationality= profile.nationality
+		div#MainPart
+			section
+				h1 Summary
+				p= summary
+			section
+				h1 Objective
+				p= objective
+			section#XP
+				h1 Professional Experience
+				each experience in experiences.sort(function(a,b){return new Date(b.period.start) - new Date(a.period.start);})
+					article.Experience
+						header
+							h2= experience.title + ' at ' + experience.company
+							div= experience.location
+							div= moment(experience.period.start).format("YYYY/MM") + ' - ' + (experience.period.end == 'Now' ? 'Now' : moment(experience.period.end).format("YYYY/MM"))
+							div= moment.duration((experience.period.end == 'Now' ? new moment() : moment(experience.period.end)).diff(moment(experience.period.start))).format('y [years], M [months]')
+							each project in experience.projects
+								article.Project
+									header
+										h2= project.name
+										div= project.description
+										dl.technologies
+											each technology in project.technologies
+												dt= technology
+				section#skills
+					h1 Skills
+					dl.Skills
+						each skillValues, skillCategory in skills
+							dt= skillCategory
+							each skillValue in skillValues
+								dd
+									div.Skill= skillValue.skill
+									if skillValue.details
+										div.SkillDetails= skillValue.details
+				section#languages
+					h1 Languages
+					dl.Languages
+						each languageProficiency, languageName in languages
+							dt= languageName
+							dd= languageProficiency
+				section#education
+					h1 Education
+					table#Education
+						thead
+							tr
+								th Years
+								th School Name
+								th Degree
+								th Study
+								th Description
+						tbody
+							each school in education
+								tr
+									td= moment(school.period.start).format('YYYY') + ' - ' + moment(school.period.end).format('YYYY')
+									td= school.school
+									td= school.degree
+									td= school.study
+									td= school.description
+					section#Interests
+						h1 Interests
+						dl.Interests
+						each interestValue, interestsName in interests
+							dt= interestsName
+							dd= interestValue
+					section#Links
+						h1 Links
+						dl.Links
+						each linkUrl, linkName in links
+							dt= linkName
+							dd
+								a(href="#{linkUrl}")= linkUrl
+						
+		script(type='text/javascript').
+			(function() {
+				var age = Math.floor(Math.abs(new Date() - new Date('#{profile.dateOfBirth}'))/31536000000);
+				document.getElementById("ContactAge").innerHTML = age + ' years old';
+			})();
+				

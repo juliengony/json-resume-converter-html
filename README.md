@@ -12,3 +12,9 @@ Validation of the json input:
 ```bash
 node index.js validate <jsonFile>
 ```
+
+Converting to html:
+
+```bash
+node index.js convert <jsonFile> <htmlOutputFile>
+```
