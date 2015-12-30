@@ -173,7 +173,11 @@
                     "type": "string"
                   },
                   "additionalItems": false
-                }
+                },
+								"link": {
+									"id": "link",
+									"type": "string"
+								}
               },
 				      "required": [
 				        "name",
@@ -181,7 +185,11 @@
 				      ]
             },
             "additionalItems": false
-          }
+          },
+					"link": {
+						"id": "link",
+						"type": "string"
+					}
         },
 	      "required": [
 	        "company",
@@ -229,7 +237,11 @@
           "description": {
             "id": "description",
             "type": "string"
-          }
+          },
+					"link": {
+						"id": "link",
+						"type": "string"
+					}
         }
 				,
 	      "required": [

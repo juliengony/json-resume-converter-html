@@ -57,14 +57,17 @@
 			"projects": [ {
 				"name": "Wayne Technologies",
 				"description": "Research into alien technology has contributed to large breakthroughs in medicine, cybernetics, pharmaceuticals and avionics.",
-				"technologies": ["Alien technologies", "medical stuff"]
+				"technologies": ["Alien technologies", "medical stuff"],
+				"link": "https://en.wikipedia.org/wiki/Wayne_Enterprises#Wayne_Technologies"
 				},
 				{
 					"name": "Wayne Steel",
 					"description": "Managing the revenue from Wayne Steel shipyards, ...",
-					"technologies": ["Alien alloy", "Wealth calculator"]
+					"technologies": ["Alien alloy", "Wealth calculator"],
+					"link": "https://en.wikipedia.org/wiki/Wayne_Enterprises#Wayne_Steel"
 				}
-			]
+			],
+			"link": "https://fr.wikipedia.org/wiki/Wayne_Enterprises"
 		},
 		{
 			"company": "Batman secret identity",
@@ -90,7 +93,8 @@
 			},
 			"degree": "Master",
 			"study": "Criminology",
-			"description": "specialiality: law-enforcement."
+			"description": "specialiality: law-enforcement.",
+			"link": "http://www.yale.edu/"
 		},
 		{
 			"school": "Yale university",
