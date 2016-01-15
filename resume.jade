@@ -33,33 +33,35 @@ html(lang="en")
 					header
 						h1 Objective
 					p= objective
-				section#XP
+				section#xp
 					header
 						h1 Professional Experience
 					each experience in experiences.sort(function(a,b){return new Date(b.period.start) - new Date(a.period.start);})
-						article.Experience
+						article.experience
 							header
-								details
+								details(open)
 									-var duration= moment.duration((experience.period.end == 'Now' ? new moment() : moment(experience.period.end)).diff(moment(experience.period.start))).format('y [years], M [months]')
-									summary= experience.title + ' at ' + experience.company + ' for ' + duration
-									div= experience.title
-									div= experience.company
-									div= experience.location
-									div= moment(experience.period.start).format("YYYY/MM") + ' - ' + (experience.period.end == 'Now' ? 'Now' : moment(experience.period.end).format("YYYY/MM"))
-									if experience.link
-										aside
-											a(href="#{experience.link}")= experience.link
-								each project in experience.projects
-									article.Project
-										header
-											h2= project.name
-										div= project.description
-										dl.technologies
-											each technology in project.technologies
-												dt= technology
-										if project.link
+									summary
+										mark.date= moment(experience.period.start).format("YYYY/MM") + ' - ' + (experience.period.end == 'Now' ? 'Now' : moment(experience.period.end).format("YYYY/MM")) + ': ' 
+										mark= experience.title
+										= ' at '
+										mark= experience.company
+										= ' (' + experience.location + ') ' + ' for '
+										mark= duration
+										if experience.link
 											aside
-												a(href="#{project.link}")= project.link
+												a(href="#{experience.link}") more info
+									each project in experience.projects
+										article.Project
+											header
+												h2= project.name
+												if project.link
+													aside
+														a(href="#{project.link}") more info
+											div= project.description
+											dl.technologies
+												each technology in project.technologies
+													dd= technology
 				section#skills
 					header
 						h1 Skills
@@ -83,17 +85,20 @@ html(lang="en")
 					header
 						h1 Education
 					each school in education
-						details
+						details(open)
 							-var schoolDuration= moment(school.period.start).format('YYYY') + ' - ' + moment(school.period.end).format('YYYY')
-							summary= schoolDuration + ': ' + school.degree + ' ' + school.study + ' at ' + school.school
-							div= schoolDuration
-							div= school.school
-							div= school.degree
-							div= school.study
+							summary
+								mark= schoolDuration
+								= ': '
+								mark= school.degree
+								= ' '
+								mark= school.study
+								= ' at '
+								mark= school.school
+								if school.link
+									aside
+										a(href="#{school.link}") more info
 							div= school.description
-							if school.link
-								aside
-									a(href="#{school.link}")= school.link
 				section#Interests
 					header
 						h1 Interests

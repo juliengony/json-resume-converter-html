@@ -29,7 +29,16 @@ body {
 	color: 	#000000;
 	font-family: Arial, Helvetica, sans-serif !important;
 	text-align: justify;
+}
 
+mark {
+	font-weight: bold;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+mark.date {
+	font-style: italic;
 }
 
 /************************ Header ************************/
@@ -50,7 +59,7 @@ header hgroup h2 {
 }
 
 header {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 header section  h1{
@@ -119,7 +128,7 @@ address div.ContactName:first-letter{
 }
 
 #MainPart section p {
-	text-indent: 50px;
+	text-indent: 20px;
 }
 
 /************************ Skills ************************/
@@ -170,7 +179,97 @@ address div.ContactName:first-letter{
 
 #skills dt+dd:before {
 	content: "";
-	margin-left: 50px;
+	margin-left: 20px;
+}
+
+/************************ XP ************************/
+
+.experience aside::before {
+	content: "(";
+}
+
+.experience aside::after {
+	content: ")";
+}
+
+.experience aside {
+	display: inline;
+}
+
+.Project {
+	margin-left: 20px;
+	border-width:1px;
+	border-radius: 1em;
+	border-style:solid;
+	padding: 8px 8px;
+	margin-top: 5px;
+	clear: both;
+}
+
+.Project header {
+	margin-bottom: 10px;
+}
+
+.Project h2 {
+	text-transform: uppercase;
+	display: inline;
+}
+
+.Project div:first-letter {
+	text-transform: uppercase;
+}
+
+.Project aside::before {
+	content: "(";
+}
+
+.Project aside::after {
+	content: ")";
+}
+
+.Project aside {
+	display: inline;
+}
+
+.Project dl {
+	margin-top: 5px;
+	display: inline;
+	float: none;
+	overflow: auto;
+}
+
+.Project dd {
+	display: inline;
+	float: left;
+	padding-left: 2px;
+}
+
+.Project dd+dd::before {
+	content: ", ";
+}
+
+.Project dl:before {
+	content: "Technologies:";
+	text-decoration: underline;
+	float: left;
+	padding-right: 2px;
+}
+
+/************************ education ************************/
+#education aside::before {
+	content: "(";
+}
+
+#education aside::after {
+	content: ")";
+}
+
+#education aside {
+	display: inline;
+}
+
+#education div {
+	margin-left: 20px;
 }
 
 /************************ simpleList ************************/
@@ -201,11 +300,6 @@ address div.ContactName:first-letter{
 	padding-left: 2px;
 }
 
-/******************** removing all aside *********************/
-aside{
-	display: none;
-}
-
 /************************ footer ************************/
 
 footer {
@@ -226,6 +320,20 @@ footer:after {
 	p, section, article, h1, h2, details, summary, dt, dd, dl, header {
 		page-break-inside: avoid;
 	}
+
+	aside::before {
+		display: none;
+	}
+
+	aside::after {
+		display: none;
+	}
+
+	aside a {
+		display: none;
+	}
+
+	details[open]
 
 	a {
 		color: 	#000000;
