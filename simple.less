@@ -1,0 +1,341 @@
+/* RESET */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, font, img, ins, kbd, q, samp, small, strong, sub, sup, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, header, nav, article, aside, footer, hgroup, section, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	text-decoration: none;
+	overflow: auto;
+}
+:focus, :active { outline: 0 }
+
+@photo: '';
+
+/************************ MAIN STYLES ************************/
+html {
+	background-color: #FFFFFF;
+	height: 100%;
+	padding: 10px;
+}
+
+body {
+	/*width: 960px;*/
+	min-width: 960px;
+	width: 100%;
+	color: 	#000000;
+	font-family: Arial, Helvetica, sans-serif !important;
+	text-align: justify;
+}
+
+mark {
+	font-weight: bold;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+mark.date {
+	font-style: italic;
+}
+
+/************************ Header ************************/
+header hgroup{
+	float: right;
+	position: absolute;
+	width: 100%;
+	right: 0px;
+	text-align: center;
+}
+
+header hgroup h1 {
+	font-size: 72px; margin-top: 10px;
+}
+
+header hgroup h2 {
+	font-size: 48px; margin-top: 10px;
+}
+
+header {
+	margin-bottom: 10px;
+}
+
+header section  h1{
+	font-size: 36px;
+	text-align: center;
+}
+
+/*********************** Adress ************************/
+
+#ContactInfo{
+	width: 240px;
+	border-width:2px;
+	border-style:dashed;
+	border-radius:2em;
+	float: left;
+}
+
+#ContactInfo h1{
+	border-bottom: 2px dashed;
+}
+
+address {
+	font-style:italic;
+	margin: 10px;
+}
+
+address div.ContactName{
+	font-weight: bold;
+}
+
+address div.ContactName:first-letter{
+	font-size:120%;
+}
+
+/*********************** Adress ************************/
+#Photo when not(@photo = ''){
+	width: 180px;
+	height: 220px;
+	border-radius:2em;
+	float: right;
+	background-image: url(@photo);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/************************ Sections ************************/
+#MainPart {
+
+}
+
+#MainPart section  {
+	border-width:2px;
+	border-style:solid;
+	border-radius:1em;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+#MainPart section header h1 {
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 5px;
+	clear: both;
+	font-weight: bold;
+}
+
+#MainPart section p {
+	text-indent: 20px;
+}
+
+/************************ Skills ************************/
+#skills dt{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#skills dt:first-letter{
+	text-transform: uppercase;
+}
+
+#skills dt:after{
+	content:": ";
+}
+
+#skills dd {
+	display: inline;
+}
+
+#skills dd details {
+	display: inline;
+}
+
+#skills dd details[open] summary:after {
+	display: inline;
+}
+
+#skills dd details summary{
+	display: inline;
+  cursor: pointer;
+}
+
+#skills dd details summary::-webkit-details-marker {
+	display: none;
+}
+
+#skills dd details div{
+	display: inline;
+	float: left;
+	font-style: italic;
+	margin-left: 10px;
+}
+
+#skills dd:before {
+	content: ", ";
+}
+
+#skills dt+dd:before {
+	content: "";
+	margin-left: 20px;
+}
+
+/************************ XP ************************/
+
+.experience aside::before {
+	content: "(";
+}
+
+.experience aside::after {
+	content: ")";
+}
+
+.experience aside {
+	display: inline;
+}
+
+.Project {
+	margin-left: 20px;
+	border-width:1px;
+	border-radius: 1em;
+	border-style:solid;
+	padding: 8px 8px;
+	margin-top: 5px;
+	clear: both;
+}
+
+.Project header {
+	margin-bottom: 10px;
+}
+
+.Project h2 {
+	text-transform: uppercase;
+	display: inline;
+}
+
+.Project div:first-letter {
+	text-transform: uppercase;
+}
+
+.Project aside::before {
+	content: "(";
+}
+
+.Project aside::after {
+	content: ")";
+}
+
+.Project aside {
+	display: inline;
+}
+
+.Project dl {
+	margin-top: 5px;
+	display: inline;
+	float: none;
+	overflow: auto;
+}
+
+.Project dd {
+	display: inline;
+	float: left;
+	padding-left: 2px;
+}
+
+.Project dd+dd::before {
+	content: ", ";
+}
+
+.Project dl:before {
+	content: "Technologies:";
+	text-decoration: underline;
+	float: left;
+	padding-right: 2px;
+}
+
+/************************ education ************************/
+#education aside::before {
+	content: "(";
+}
+
+#education aside::after {
+	content: ")";
+}
+
+#education aside {
+	display: inline;
+}
+
+#education div {
+	margin-left: 20px;
+}
+
+/************************ simpleList ************************/
+.simpleList dl{
+	display: block;
+	float: none;
+	clear: both;
+	overflow: auto;
+}
+
+.simpleList dt{
+	font-weight: bold;
+	float: left;
+	clear: left;
+}
+
+.simpleList dt:first-letter{
+	text-transform: uppercase;
+}
+
+.simpleList  dt:after{
+	content:": ";
+}
+
+.simpleList  dd{
+	float: left;
+	clear: right;
+	padding-left: 2px;
+}
+
+/************************ footer ************************/
+
+footer {
+	text-align: center;
+	font-style: italic;
+}
+
+footer:after {
+	content:" ( Style: Simple Black & White)";
+}
+
+/************************ print ************************/
+@media print {
+  footer, aside, #Links {
+    display:none;
+  }
+
+	p, section, article, h1, h2, details, summary, dt, dd, dl, header {
+		page-break-inside: avoid;
+	}
+
+	aside::before {
+		display: none;
+	}
+
+	aside::after {
+		display: none;
+	}
+
+	aside a {
+		display: none;
+	}
+
+	details[open]
+
+	a {
+		color: 	#000000;
+	}
+}

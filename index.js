@@ -4,6 +4,7 @@ const validate = require('jsonschema').validate
 const fs = require('fs')
 const jade = require('jade')
 const moment = require('moment')
+const less = require('less')
 require("moment-duration-format")
 
 colors.setTheme({
@@ -27,8 +28,10 @@ program
 	.action(validateFile)
 
 program
-  .command('convert <file> <outputHtml>')
-	.description('Convert the json provided by <file> to html file <outputHtml>')
+  .command('convert <file> <outputFolder>')
+	.description('Convert the json provided by <file> to html file in the <outputFolder>')
+	.option('-p, --photo <photoPath>', 'add photo')
+	.option('-s, --style <style>', 'add style (the name should be an existing <style>.less file (ex: simple))')
 	.action(convertFile)
 
 program
@@ -62,18 +65,40 @@ function validateFile(file){
 	})
 }
 
-function convertFile(file, outputHtml){
-	console.log(('Converting ' + file + ' to ' + outputHtml).info)
+function convertFile(file, outputFolder, cmd){
+	console.log(('Converting ' + file + ' to ' + outputFolder).info)
 	fs.readFile(file, 'utf8', function (err, jsonTxt) {
 		if (err) throw err;
 		var json = JSON.parse(jsonTxt)
 		json.moment = moment
 		var fn = jade.compileFile('./resume.jade',{pretty: true})
+		if(cmd.style)
+			json.style = cmd.style
 		var html = fn(json)
 		console.log(html);
+		var outputHtml = outputFolder + '/' + json.profile.firstName + '_' + json.profile.lastName + '_resume.html'
 		fs.writeFile(outputHtml, html, 'utf8', function (err) {
-		  if (err) throw err;
-		  console.log((outputHtml + ' saved!').info);
+		  if (err) throw err
+			if(cmd.style)
+			{
+				fs.readFile(cmd.style + '.less', 'utf8', function (err, css) {
+					if (err) throw err;
+					var options = cmd.photo ? {
+					  modifyVars: {
+					    'photo': cmd.photo
+					  }
+					} : {}
+					less.render(css, options, function(error, output) {
+						if(error) throw error
+						var cssPath =  outputFolder + '/' + cmd.style + '.css'
+						fs.writeFile(cssPath, output.css, 'utf8', function (err) {
+							if(error) throw error
+							console.log((cssPath + ' saved!').info);
+						})
+					})
+				})
+			}
+			console.log((outputHtml + ' saved!').info);
 		})
 	})
 }

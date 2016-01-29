@@ -1,94 +1,123 @@
 doctype html
-html
+html(lang="en")
 	head
+		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+		meta(name="description" content="html5 css3 resume")
+		meta(charset="UTF-8")
+		if style
+			link(href="#{style}.css", type="text/css", rel="stylesheet")
 		title= profile.firstName + ' ' + profile.lastName + "'s Resume"
 	body
-		header
-			hgroup
-				h1= profile.firstName + ' ' + profile.lastName
-				h2= title
-			section#ContactInfo
-				h1 Contact info
-				address
-					div.ContactName= profile.firstName + ' ' + profile.lastName
-					div.ContactAdress= profile.address.street + ' ' + profile.address.postalCode + ' ' + profile.address.city + ', ' + profile.address.country
-					div.ContactAge#ContactAge
-					div.ContactTel= '(' + profile.phone.extension + ') ' + profile.phone.number
-					div.ContactEmail= profile.email
-					div.ContactNationality= profile.nationality
-		div#MainPart
-			section
-				h1 Summary
-				p= summary
-			section
-				h1 Objective
-				p= objective
-			section#XP
-				h1 Professional Experience
-				each experience in experiences.sort(function(a,b){return new Date(b.period.start) - new Date(a.period.start);})
-					article.Experience
-						header
-							h2= experience.title + ' at ' + experience.company
-							div= experience.location
-							div= moment(experience.period.start).format("YYYY/MM") + ' - ' + (experience.period.end == 'Now' ? 'Now' : moment(experience.period.end).format("YYYY/MM"))
-							div= moment.duration((experience.period.end == 'Now' ? new moment() : moment(experience.period.end)).diff(moment(experience.period.start))).format('y [years], M [months]')
-							each project in experience.projects
-								article.Project
-									header
-										h2= project.name
-										div= project.description
-										dl.technologies
-											each technology in project.technologies
-												dt= technology
+		main
+			header
+				hgroup
+					h1= profile.firstName + ' ' + profile.lastName
+					h2= title
+				section#ContactInfo
+					header
+						h1 Contact info
+					address
+						div.ContactName= profile.firstName + ' ' + profile.lastName
+						div.ContactAdress= profile.address.street + ' ' + profile.address.postalCode + ' ' + profile.address.city + ', ' + profile.address.country
+						div.ContactAge#ContactAge
+						div.ContactTel= '(' + profile.phone.extension + ') ' + profile.phone.number
+						div.ContactEmail= profile.email
+						div.ContactNationality= profile.nationality
+				section#Photo
+			div#MainPart
+				section
+					header
+						h1 Summary
+					p= summary
+				section
+					header
+						h1 Objective
+					p= objective
+				section#xp
+					header
+						h1 Professional Experience
+					each experience in experiences.sort(function(a,b){return new Date(b.period.start) - new Date(a.period.start);})
+						article.experience
+							header
+								details(open)
+									-var duration= moment.duration((experience.period.end == 'Now' ? new moment() : moment(experience.period.end)).diff(moment(experience.period.start))).format('y [years], M [months]')
+									summary
+										mark.date= moment(experience.period.start).format("YYYY/MM") + ' - ' + (experience.period.end == 'Now' ? 'Now' : moment(experience.period.end).format("YYYY/MM")) + ': ' 
+										mark= experience.title
+										= ' at '
+										mark= experience.company
+										= ' (' + experience.location + ') ' + ' for '
+										mark= duration
+										if experience.link
+											aside
+												a(href="#{experience.link}") more info
+									each project in experience.projects
+										article.Project
+											header
+												h2= project.name
+												if project.link
+													aside
+														a(href="#{project.link}") more info
+											div= project.description
+											dl.technologies
+												each technology in project.technologies
+													dd= technology
 				section#skills
-					h1 Skills
-					dl.Skills
+					header
+						h1 Skills
+					dl
 						each skillValues, skillCategory in skills
 							dt= skillCategory
 							each skillValue in skillValues
 								dd
-									div.Skill= skillValue.skill
-									if skillValue.details
-										div.SkillDetails= skillValue.details
+									details
+										summary= skillValue.skill
+										if skillValue
+											div= skillValue.details
 				section#languages
-					h1 Languages
-					dl.Languages
+					header
+						h1 Languages
+					dl.simpleList
 						each languageProficiency, languageName in languages
 							dt= languageName
 							dd= languageProficiency
 				section#education
-					h1 Education
-					table#Education
-						thead
-							tr
-								th Years
-								th School Name
-								th Degree
-								th Study
-								th Description
-						tbody
-							each school in education
-								tr
-									td= moment(school.period.start).format('YYYY') + ' - ' + moment(school.period.end).format('YYYY')
-									td= school.school
-									td= school.degree
-									td= school.study
-									td= school.description
-					section#Interests
+					header
+						h1 Education
+					each school in education
+						details(open)
+							-var schoolDuration= moment(school.period.start).format('YYYY') + ' - ' + moment(school.period.end).format('YYYY')
+							summary
+								mark= schoolDuration
+								= ': '
+								mark= school.degree
+								= ' '
+								mark= school.study
+								= ' at '
+								mark= school.school
+								if school.link
+									aside
+										a(href="#{school.link}") more info
+							div= school.description
+				section#Interests
+					header
 						h1 Interests
-						dl.Interests
+					dl.simpleList
 						each interestValue, interestsName in interests
 							dt= interestsName
 							dd= interestValue
-					section#Links
+				section#Links
+					header
 						h1 Links
-						dl.Links
+					dl.simpleList
 						each linkUrl, linkName in links
 							dt= linkName
 							dd
 								a(href="#{linkUrl}")= linkUrl
 		footer
-			p Generated by json-resume-converter-html: #[a(href="https://github.com/juliengony/json-resume-converter-html") on GitHub]
+			p Generated by json-resume-converter-html
+			aside
+				a(href="https://github.com/juliengony/json-resume-converter-html") GitHub
 						
 		script(type='text/javascript').
 			(function() {
