@@ -10,19 +10,23 @@ html(lang="en")
 	body
 		main
 			header
-				hgroup
-					h1= profile.firstName + ' ' + profile.lastName
-					h2= title
 				section#ContactInfo
 					header
 						h1 Contact info
 					address
+						-var mapsUrl= 'https://www.google.com/maps/place/' + profile.address.street.split(' ').join('+') + ',+' + profile.address.postalCode + '+' + profile.address.city.split(' ').join('+') + ',+' + profile.address.country.split(' ').join('+')
 						div.ContactName= profile.firstName + ' ' + profile.lastName
-						div.ContactAdress= profile.address.street + ' ' + profile.address.postalCode + ' ' + profile.address.city + ', ' + profile.address.country
+						div.ContactAdress
+							a(href="#{mapsUrl}")= profile.address.street + ' ' + profile.address.postalCode + ' ' + profile.address.city + ', ' + profile.address.country
 						div.ContactAge#ContactAge
 						div.ContactTel= '(' + profile.phone.extension + ') ' + profile.phone.number
-						div.ContactEmail= profile.email
+						-var emailTo= 'mailto:' + profile.email
+						div.ContactEmail
+							a(href="#{emailTo}")= profile.email
 						div.ContactNationality= profile.nationality
+				hgroup
+					h1= profile.firstName + ' ' + profile.lastName
+					h2= title
 				section#Photo
 			div#MainPart
 				section
@@ -70,10 +74,7 @@ html(lang="en")
 							dt= skillCategory
 							each skillValue in skillValues
 								dd
-									details
-										summary= skillValue.skill
-										if skillValue
-											div= skillValue.details
+									div= skillValue.skill
 				section#languages
 					header
 						h1 Languages
