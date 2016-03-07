@@ -293,9 +293,6 @@ footer:after {
 
 /************************ print ************************/
 @media print {
-  footer, aside, #Links {
-    display:none;
-  }
 
 	p, section, article, h1, h2, details, summary, dt, dd, dl, header {
 		page-break-inside: avoid;
@@ -306,10 +303,6 @@ footer:after {
 	}
 
 	aside::after {
-		display: none;
-	}
-
-	aside a {
 		display: none;
 	}
 
